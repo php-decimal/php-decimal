@@ -1,9 +1,6 @@
 <?php
 namespace Decimal;
 
-/**
- * Arbitrary-precision decimal floating point number.
- */
 final class Decimal implements \JsonSerializable
 {
     /**
@@ -39,6 +36,45 @@ final class Decimal implements \JsonSerializable
      *                          be converted to decimal.
      */
     public function __construct($value, int $precision = Decimal::DEFAULT_PRECISION) {}
+
+    /**
+     * Sum
+     *
+     * The precision of the result will be the max of all precisions that were
+     * encountered during the calculation. The given precision should therefore
+     * be considered the minimum precision of the result.
+     *
+     * This method is equivalent to adding each value individually.
+     *
+     * @param array|\Traversable $values
+     * @param int                $precision Minimum precision of the sum.
+     *
+     * @return Decimal the sum of all given values.
+     *
+     * @throws \TypeError if an unsupported type is encountered.
+     * @throws \ArithmeticError if addition is undefined, eg. INF + -INF
+     */
+    public static function sum($values, int $precision = Decimal::DEFAULT_PRECISION): Decimal {}
+
+    /**
+     * Average
+     *
+     * The precision of the result will be the max of all precisions that were
+     * encountered during the calculation. The given precision should therefore
+     * be considered the minimum precision of the result.
+     *
+     * This method is equivalent to adding each value individually,
+     * then dividing by the number of values.
+     *
+     * @param array|\Traversable $values
+     * @param int                $precision Minimum precision of the average.
+     *
+     * @return Decimal the average of all given values.
+     *
+     * @throws \TypeError if an unsupported type is encountered.
+     * @throws \ArithmeticError if addition is undefined, eg. INF + -INF
+     */
+    public static function avg($values, int $precision = Decimal::DEFAULT_PRECISION): Decimal {}
 
     /**
      * Copy
@@ -384,19 +420,9 @@ final class Decimal implements \JsonSerializable
      * @param mixed $other
      *
      * @return bool TRUE if this decimal is considered equal to the given value.
+     *              Equal decimal values tie-break on precision.
      */
     public function equals($other): bool {}
-
-    /**
-     * Strict equality
-     *
-     * This method is NOT equivalent to the `===` operator!
-     *
-     * @param Decimal $other
-     *
-     * @return bool TRUE if this decimal is equal in value and precision.
-     */
-    public function equalsExactly(Decimal $other): bool {}
 
     /**
      * Ordering
@@ -431,43 +457,4 @@ final class Decimal implements \JsonSerializable
      * @return string
      */
     public function jsonSerialize() {}
-
-    /**
-     * Sum
-     *
-     * The precision of the result will be the max of all precisions that were
-     * encountered during the calculation. The given precision should therefore
-     * be considered the minimum precision of the result.
-     *
-     * This method is equivalent to adding each value individually.
-     *
-     * @param array|\Traversable $values
-     * @param int                $precision Minimum precision of the sum.
-     *
-     * @return Decimal the sum of all given values.
-     *
-     * @throws \TypeError if an unsupported type is encountered.
-     * @throws \ArithmeticError if addition is undefined, eg. INF + -INF
-     */
-    public static function sum($values, int $precision = Decimal::DEFAULT_PRECISION): Decimal {}
-
-    /**
-     * Average
-     *
-     * The precision of the result will be the max of all precisions that were
-     * encountered during the calculation. The given precision should therefore
-     * be considered the minimum precision of the result.
-     *
-     * This method is equivalent to adding each value individually,
-     * then dividing by the number of values.
-     *
-     * @param array|\Traversable $values
-     * @param int                $precision Minimum precision of the average.
-     *
-     * @return Decimal the average of all given values.
-     *
-     * @throws \TypeError if an unsupported type is encountered.
-     * @throws \ArithmeticError if addition is undefined, eg. INF + -INF
-     */
-    public static function avg($values, int $precision = Decimal::DEFAULT_PRECISION): Decimal {}
 }
