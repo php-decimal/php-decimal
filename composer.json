@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.0.0",
+        "ext-decimal": "^1.0.0",
     },
     "autoload": {
         "psr-4": {
