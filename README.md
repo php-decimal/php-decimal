@@ -11,8 +11,6 @@ It provides:
 composer require php-decimal/php-decimal
 ```
 
----
-
 Also see:
 - [Documentation](https://github.com/php-decimal/php-decimal.github.io)
 - [Extension](https://github.com/php-decimal/ext-decimal)
