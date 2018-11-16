@@ -1,4 +1,7 @@
-# PHP Decimal
+# PHP Decimal Extension
+
+![Packagist](https://img.shields.io/packagist/v/php-decimal/php-decimal.svg)
+![Downloads](https://img.shields.io/packagist/dt/php-decimal/php-decimal.svg)
 
 This is the reference package to use when adding the decimal extension as a dependency.
 
