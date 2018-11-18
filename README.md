@@ -1,6 +1,6 @@
 # PHP Decimal Extension
 
-![Packagist](https://img.shields.io/packagist/v/php-decimal/php-decimal.svg)
+[![Packagist](https://img.shields.io/packagist/v/php-decimal/php-decimal.svg)](https://packagist.org/packages/php-decimal/php-decimal)
 
 This is the reference package to use when adding the decimal extension as a dependency.
 
