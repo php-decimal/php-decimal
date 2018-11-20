@@ -12,8 +12,8 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "php-decimal/stubs": "^1.0",
-        "ext-decimal": "^1.0"
+        "php-decimal/stubs": "^1.1",
+        "ext-decimal": "^1.1"
     },
     "autoload": {
         "psr-4": {
